@@ -1,0 +1,23 @@
+RIP
+router rip
+ver 2
+network 192.168.9.0
+network 10.0.0.0
+exit
+int s0/0/0/0
+ip add 10.0.0.10 255.255.255.252
+no shut
+lcock rate 56.0.0.0/0/0
+bandwidth 64
+
+Ei GRP			AS 120
+router eigrp 120 		wildcard
+network 192.168.1.0		0.0.0.255
+network 10.0.0.0 		0.0.0.3
+network 10.0.0.8		0.0.0.3
+
+OSPF	ID		150		Arca 0
+router orpf		150
+network 192.168.1.0 0.0.0.255 area 0
+network 10.0/0/0 0.0.0.3 area 0
+network 10.0.0.8 0.0.0.3 area 0
